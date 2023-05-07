@@ -311,6 +311,10 @@ sub AddVideoContent(video as object, mediaSourceId as dynamic, audio_stream_idx 
     ' is enabled/will be enabled, indexed on the provided list of subtitles
     video.SelectedSubtitle = setupSubtitle(video, video.Subtitles, subtitle_idx)
 
+   video.content.SDBifUrl = api_API().jellyscrub.get(video.id)
+      video.content.HDBifUrl = api_API().jellyscrub.get(video.id)
+      video.content.FHDBifUrl = api_API().jellyscrub.get(video.id)
+
     if not fully_external
         video.content = authorize_request(video.content)
     end if
